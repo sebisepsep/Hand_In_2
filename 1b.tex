@@ -1,0 +1,31 @@
+\subsection*{b)}
+Now we want to generate 3D satellite positions following the satellite profile \( n(x) \). Note that \( n(x) \) is a number density, while \( N(x)dx \) is the number of galaxies in the infinitesimal range \([x, x + dx)\). Here we are choosing \( h \) as a small parameter to obtain the number of galaxies within a specific range.
+
+With:
+\begin{align}
+    p(x) dx &= N(x) \frac{dx}{\langle N_{\text{sat}} \rangle}
+\end{align}
+where:
+\begin{align}
+    N(x) &= \int_x^{x+dx} \iint n(x') \sin \theta \, d\theta \, d\phi \, x'^2 \, dx' = 4 \pi \int_x^{x+dx} n(x') x'^2 \, dx'
+\end{align}
+
+We want to sample the probability distribution of the relative radii \( x \in [0,5) \). Therefore, we generate 10,000 points and make a log-log plot showing \( N(x) \).
+\begin{align}
+    p(x) &= \frac{N(x)}{\langle N_{\text{sat}} \rangle}  \\
+    &= \frac{4 \pi}{\langle N_{\text{sat}} \rangle} \int_x^{x+dx} n(x') x'^2 \, dx' \\
+    &= 4 \pi A \frac{1}{b}^{a-3} \int_x^{x+dx} x'^{a-1} \exp\left(-\frac{x'}{b}^c\right) \, dx'
+\end{align}
+
+We also generate a histogram of our 10,000 (slice-sampled) points. We use 20 logarithmically-spaced bins between \( x = 10^{-4} \) and \(x_{\text{max}} = 5 \). We divide each bin by its width.
+
+To obtain random numbers, we have chosen the xor method, which we scale down to be in the range \( [0,1] \). Therefore, we obtain a uniform random number generator. We also had to normalize the bars histogramm, fist by the width and second by the offset.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{./my_solution_1b.png}
+    \caption{In this figure, we plot the number of galaxies over the virial radius \( x \). The histogram was created by slice sampling with the \( p(x) \) distribution, which is related to the \( N(x) \) distribution as explained.}
+    \label{fig:enter-label}
+\end{figure}
+
+\lstinputlisting{b1.py}

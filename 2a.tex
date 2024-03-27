@@ -1,0 +1,24 @@
+\subsection*{a)}
+The heating is produced by:
+\begin{align}
+    \Gamma_{pe} &= \alpha_B n_H n_e \phi k_B T_c
+\end{align}
+The photoionization is balanced by radiative recombination:
+\begin{align}
+    \Lambda_{rr} &= \alpha_B n_H n_e \langle E_{rr} \rangle
+\end{align}
+with:
+\begin{align}
+    \langle E_{rr} \rangle &= \left(0.684-0.0416 \ln \left(\frac{T_4}{Z^2}\right)\right) k_B T
+\end{align}
+Follows: 
+\begin{align}
+    \langle E_{rr} \rangle &= \phi k_B T_c \\
+    0 &= \left(0.684-0.0416 \ln \left(\frac{T_4}{Z^2}\right)\right)  T -\phi  T_c \\
+    &= \left(0.684 + 0.0416 \cdot (4 \ln \left(10\right) + 2 \ln \left(Z\right) -  \ln \left(T\right))\right)  T -\phi  T_c\\
+    &= \left(\frac{0.684}{0.0416}+ 4 \ln \left(10\right) + 2 \ln \left(Z\right) -  \ln \left(T\right)\right)T - \frac{\phi  T_c}{0.0416}
+\end{align}
+To find \( T \) we use rootfinding. In this part, I use Newton-Raphson's method. Since the \( x \)-values "hop" which is done by the fraction of the function and its derivative at that \( x \) point, I changed the step size so that in this case, because we are dealing with a logarithm, the \( x \) value does not become negative, which would cause an error. So, preventing negative \( x \) values led to: 
+\lstinputlisting{2a_res.txt} 
+It might cause some more iterations due to the improved ratio in Newton-Raphson's method, but therefore we are not in trouble with the negative \( x \) values another aspect is that the amount of iterations is also depending on the initial conditions.  
+\lstinputlisting{a2.py}

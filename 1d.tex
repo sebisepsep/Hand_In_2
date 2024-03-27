@@ -1,0 +1,12 @@
+\subsection*{d)}
+In this task, we numerically calculate the radial derivative from our density distribution \( n(x) \). To do so, we have chosen the Ridders method. In the Ridders method, we use the best \( m \) value. This value is chosen in such a way that the difference from increasing \( m \) is at its minimum. This is because in numerical differentiators, first the result is truncation-dominated and then, after decreasing the absolute step size, it becomes round-off dominated.
+
+Calculating the analytical result:
+\begin{align}
+    n(x) &= A \langle N_{\text{sat}} \rangle \frac{x}{b}^{a-3}\exp\left(-\frac{x}{b}^c\right) \\
+    \frac{dn(x)}{dx} &= A \langle N_{\text{sat}} \rangle \frac{a-3-c\frac{x}{b}^{c}}{b} \cdot \frac{x}{b}^{a-4} \exp\left(-\frac{x}{b}^c\right) = -0.6253244856660629
+\end{align}
+The numerical value is: \lstinputlisting{1d_delta_m.txt} with \( m = \) \lstinputlisting{1d_m.txt} 
+Therefore it has the same value up to the 9th position. 
+
+\lstinputlisting{d1.py}

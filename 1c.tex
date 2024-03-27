@@ -1,0 +1,11 @@
+\subsection*{c)}
+From the 10,000 galaxies sampled by the \( p(x) \) distribution, we have chosen 100. To do so, and to select every galaxy with equal probability, not pick any galaxy twice, and not reject any draw, we divided the 10,000 values into 100*100 intervals and always picked one element per interval. Then we sorted them with selection sort and plotted them cumulatively.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{./my_solution_1c.png}
+    \caption{This figure shows the cumulative distribution of 100 randomly chosen and then sorted galaxies out of the 10,000 sampled galaxies.}
+    \label{fig:enter-label}
+\end{figure}
+
+\lstinputlisting{c1.py}

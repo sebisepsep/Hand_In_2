@@ -1,0 +1,23 @@
+\subsection*{b)}
+Now we consider a more realistic configuration with additional cooling by free-free emission and heating by cosmic rays and MHD waves: 
+\begin{align}
+    \Lambda_{FF} &= 0.54 \cdot  T^{0.37}_4 \cdot  \alpha_B n_e n_H k_B T\\
+    \Gamma_{CR} &= A n_e \zeta_{CR} \\
+    \Gamma_{MHD} &= 8.9\cdot 10^{-26} \cdot n_H T_4
+\end{align}
+\begin{align}
+    \Lambda_{FF}+ \Lambda_{rr} &= \Gamma_{CR} + \Gamma_{MHD} + \Gamma_{pe} \\
+    0.54 T^{0.37}_4 \alpha_B n_e n_H k_B T +\alpha_B n_H n_e \langle E_{rr} \rangle &= A n_e \zeta_{CR} +  8.9\cdot 10^{-26} \cdot n_H T_4 + \alpha_B n_H n_e \phi k_B T_c \\
+\end{align}
+\begin{align}
+    0 &= - 0.54 T^{0.37}_4 n_e k_B T - n_e  \langle E_{rr} \rangle + \frac{ A \zeta_{CR}}{\alpha_B} +  \frac{8.9\cdot 10^{-26} \cdot T_4}{\alpha_B} + n_e \phi k_B T_c \\  
+    0 &= - 0.54 T^{0.37}_4 n_e  T - n_e  \left(0.684-0.0416 \ln \left(\frac{T_4}{Z^2}\right)\right) T + \frac{ A \zeta_{CR}}{\alpha_B k_B} +  \frac{8.9\cdot 10^{-26} \cdot T_4}{\alpha_B k_B} + n_e \phi T_c \\
+\end{align}
+To find the root, we have used the bisection method, because this method cannot fail. It takes more iterations, but in this problem, we had different values for \( n_e \) given, so it made sense to choose bisection. 
+For $n_e= 10^{-4} cm^{-3}$
+\lstinputlisting{2b_res0.txt}
+For $n_e= 10^{0} cm^{-3}$
+\lstinputlisting{2b_res1.txt}
+For $n_e= 10^{4} cm^{-3}$
+\lstinputlisting{2b_res2.txt}
+\lstinputlisting{b2.py}

@@ -1,0 +1,13 @@
+\subsection*{a)}
+Here we want to perform a numerical integration based on Richardson extrapolation to solve the equation for \( A \):
+\begin{align}
+    \langle N_{\text{sat}} \rangle &= \iiint_V n(x) \, dV \\
+    \langle N_{\text{sat}} \rangle &= \int_0^5 \int_0^{2\pi} \int_{0}^{\pi} A \langle N_{\text{sat}} \rangle \frac{x}{b}^{a-3} \exp\left(-\frac{x}{b}^c\right) \sin \theta \, d\theta \, d\phi \, x^2 \, dx \\
+    \leftrightarrow \frac{1}{A} &= 4 \pi \frac{1}{b}^{a-3} \int_0^5 x^{a-1} \exp\left(-\frac{x}{b}^c\right) \, dx
+\end{align}
+with \( a = 2.4 \), \( b = 0.25 \), \( c = 1.6 \). \\
+Because we are working in spherical coordinates, we have to consider the correct volume element. Since the function \( n(x) \) does not depend on any angle, we can solve this part of the integral analytically to reduce the amount of errors. 
+For the value of \( A \), we obtain: A = \lstinputlisting{value.txt}
+
+
+\lstinputlisting{a1.py}
